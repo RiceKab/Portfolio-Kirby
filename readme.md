@@ -5,7 +5,7 @@ A project for Howest course CMS.
 Portfolio assignment built using Kirby, using vagrant to showcase the project.
 
 ## Setup
-* `git clone [URL]`
+* `git clone https://github.com/RiceKab/Portfolio-Kirby.git`
 * Navigate to `<project_root>/kirby` and run `composer install`.
 * [Optional] If you already have a `ubuntu/trusty64` box, run `vagrant box update` to get the latest version.
 * `vagrant up`
