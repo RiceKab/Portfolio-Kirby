@@ -1,0 +1,5 @@
+        ServerName local.example.com
+        DocumentRoot /vagrant
+        Redirect permanent / https://local.example.com/
+</VirtualHost>
+<VirtualHost *:443>

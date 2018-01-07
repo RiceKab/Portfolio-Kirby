@@ -1,0 +1,9 @@
+Title: Blog
+
+----
+
+Text: A view into my IT ventures.
+
+----
+
+Perpage: 3

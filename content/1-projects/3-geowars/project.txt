@@ -1,0 +1,15 @@
+Title: Geowars - Howest Project
+
+----
+
+Year: 2015
+
+----
+
+Text: 
+
+Geowars was a semester spanning group project during the second year where we were tasked to make a "spinoff" of a game called Geometry Wars in Java.
+
+We made use of the (link: https://libgdx.badlogicgames.com/ text: LibGDX) to help speed development. We also opted to implement physics in our game, which we did using the Box2D physics engine that LibGDX has bindings for.
+
+The source code is available on (link: https://github.com/RiceKab/project-geowars text: github).

@@ -1,0 +1,13 @@
+Title: The Gents Club - Gaming Community
+
+----
+
+Year: 2017
+
+----
+
+Text: 
+
+A website redesign for a gaming community I'm a member of. Built using NodeJS and Bootstrap/JQuery. 
+
+This project could've really benefited from an existing CMS instead of building most things from scratch but the initial design had some real-time elements that I felt more comfortable handling in Node.

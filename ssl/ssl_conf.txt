@@ -1,0 +1,3 @@
+	SSLEngine on
+	SSLCertificateFile /vagrant/ssl/localhost.cert
+	SSLCertificateKeyFile /vagrant/ssl/localhost.key

@@ -1,0 +1,27 @@
+Title: Get In Touch
+
+----
+
+Intro: 
+
+----
+
+Contactoptions: 
+
+- 
+  title: Test
+  icon: ""
+  text: test
+  url: test
+  linktext: test
+
+----
+
+Text: 
+
+Let's look at the options shall we:
+* The classic **e-mail**, there is (email: kevin.tang@student.howest.be text: my school mail) or (email: kevincytang@hotmail.com text: my personal mail).
+* My **Github** username is (link: https://github.com/RiceKab text: RiceKab) if you're looking to collaborate.
+* You can find me on **LinkedIn** under (link: https://www.linkedin.com/in/kevin-chi-yan-tang/ text: Kevin Chi Yan Tang).
+
+If you just want to hang out you can find me on **Discord** as RiceKab#6942 or in (link: https://discord.gg/w9SCb4j text: The Gents Club's Discord channel)

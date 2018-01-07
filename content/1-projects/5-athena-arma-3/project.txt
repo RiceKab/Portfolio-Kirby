@@ -1,0 +1,15 @@
+Title: Athena - Arma 3 Mod
+
+----
+
+Year: 2015
+
+----
+
+Text: 
+
+A mod for the game "Arma 3" containing mainly scripts for AI behaviour and equipment setup for mission makers. Started originally due to me wanting to reuse custom behaviour I had implemented in a specific mission before.
+
+The goal is to make missions both easier to setup and more atmospheric by allowing AI to engage in unusual behaviour.
+
+An older version of the source code is available publicly on (link: https://github.com/RiceKab/TGC_Athena text: Github) as this mod has since merged with another project that is closed source.

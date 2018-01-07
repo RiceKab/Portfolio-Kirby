@@ -1,0 +1,15 @@
+Title: Mobile Go - Howest PWA
+
+----
+
+Year: 2016
+
+----
+
+Text: 
+
+A project for the course "Mobile Web Apps" (also known as Progressive Web Apps). I opted to implement the game Go, using an existing Go implementation called (link: http://wgo.waltheri.net/ text: WGo). I essentially created an application wrapper around the game logic, extending and modifying it where needed.
+
+It's hosted on (link: https://mobilegohowest.herokuapp.com/ text: Heroku) if you'd like to try it, although I have noticed it can give problems in older browsers.
+
+The source code is available on (link: https://github.com/RiceKab/MobileGo text: github).

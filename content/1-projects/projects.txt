@@ -1,0 +1,5 @@
+Title: Portfolio
+
+----
+
+Text: An overview of my past projects, including school and personal projects. Some of these have their source code available on (link: https://github.com/RiceKab text: my github) where you'll also find some smaller applications.

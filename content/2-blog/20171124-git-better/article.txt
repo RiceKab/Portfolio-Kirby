@@ -1,0 +1,95 @@
+Title: Let's talk about git
+
+----
+
+Coverimage: 6-30-12_git-1.jpg
+
+----
+
+Date: 2017-11-24
+
+----
+
+Text: 
+
+Git isn't really *that* complicated to use yet it seems most people only learn the commands but don't actually know what's going on behind the scenes. This results in messy revision histories and weird merge chains which, besides being ugly, can be problematic when you're tracking a problem down. This post is **not** about repository structure but instead a look at how to fix simple git mistakes and how to clean up after ourselves. But first we have to...
+
+**Understand what git is**
+Without getting technical, git for the most part computes, compares and stores **hashes**. No doubt you've seen the commit hashes before but git also creates hashes for all the objects under source control, you can find these in the .git directory if you need to see it to believe it.
+
+The second concept that anyone should be familiar with is **pointer**. Git has quite a few of them, the most well-known one being the HEAD pointer. Perhaps you've stumbled upon this one with the panic-inducing`Detached HEAD pointer`. Besides the internal ones you can also make pointers, in fact you probably have been doing it already, they're called branches and tags.
+
+Before we dive into things you should know it's actually extremely hard to lose something in git. Unless you've done a `git reset --hard` most likely it is still in there somewhere, even if you've lost a pointer you can still retrieve it via the refs, but that's an advanced topic for another time. Let's carry on with the main topic.
+
+**Example repository**
+For the remainder of this post I'll be using an example to showcase. The examples are completely local although I'll add some notes if you've pushed it already. If you want to try out just create a repository somewhere:
+
+```
+$ mkdir ~/gitbetter
+$ cd ~/gitbetter
+$ git init
+$ echo "" > initial.txt
+$ git add .
+$ git commit -m "Initial commit"
+```
+If you'd like a more visual representations you can view a more graphic repository history using `gitk --all`.
+
+**Cleaning up our git errors**
+Let's start with some easy ones.
+1. Woops, I forgot something in my commit.
+
+Maybe you forgot to include some files or you need to fix a type in your commit message. In this scenario simply stage any missing files you've forgotten/changed (`git add` or `git stage`) and then run `git commit --amend`. 
+
+If you look at your commit history the erroneous commit will have seemingly disappeared. What happens is that it actually merges your current index (state) with the previous commit and creates a brand new commit. The old commit is actually still there but there is simply no pointer referencing it.
+
+All in all this is actually a special kind of interactive rebase, which we'll talk about in more depth later.
+
+*I already pushed this commit!*
+
+Has anyone seen it? No? Quickly `git push --force` your change in and none will be the wiser.
+
+2. Avoiding messy merge history
+
+First off, let me start off by saying this isn't that egregious and some people will claim it helps readability to have it explicit in the commit log. But depending on your project size and number of branches this can start creating a lot of noise. Personally, I only ever merge explicitly if the merge source has other subbranches that are still actively contributing.
+
+The problem I have with merging for all branches is that if you ever need to traverse the branch it is extremely tedious to have to wade through all the minor commits of feature branches. Instead, when one is done with a feature or a bugfix one should consolidate it into one or a few commits for the merge target (release / test / whatever).
+
+Let's start off with getting rid of the merge commit, this is as simple as running a rebase from your offshoot. Let's say we want to merge our bugfix branch into the release branch.
+
+```
+# We're on the bugfix branch
+git rebase release   # Don't rebase branches that have subbranches!
+# At this point there is a possibility of a merge conflict. Once resolved you can carry on.
+git checkout release
+git merge bugfix    # This will be a fast forward merge!
+```
+
+This will essentially "copy" all the commits and re-apply them on top of the release branch. This does mean we bring over all those minor commits, so how do we get rid of those? We simply squash the commits together and we can do this by using an interactive rebase (`git rebase -i`). This will open the default text editor associated with git and give you a list of your commits with "pick" in front. You replace pick with one of several options (they're all listed in comments below). You pick and choose which commits to keep, squash, reword or even drop completely.
+
+The result is a much cleaner commit history in your target branch.
+
+*But there are so many changes, how do I track down issues?!*
+
+That gets into project structure but generally the amount of work done in a topic branch should be limited in scope. If for some reason you have a lot of changes in one branch remember you can group them in multiple logical chunks using interactive rebase.
+
+*I already pushed these commits as well!*
+
+... Well, if anyone's pulled in the changes you probably will have to live with the shame. If you pushed it at 4 AM and everyone else is asleep (yeah, right) you could try and force your changes through anyway.
+
+3. Why do I want a clean merge history anyway?
+
+I'm glad you asked. There may be a time when you come upon a bug out of thin air. "I didn't even touch it!", you'll say. Nonetheless, even if you didn't break it you will have to fix it. Trying to figure out where the bug got introduced helps you narrow it down a lot faster instead of having to manually break apart things until you find it. 
+
+A nice first step could be to use `git checkout HEAD~1`, which traverses a single commit back. Note that this brings you into a "detached HEAD state". Most likely the problem still exists in some shape or form and traversing down one commit at a time is painful. Luckily you can go to any arbitrary commit using `git checkout <commit-hash>` and don't worry, the first 7 characters of the commit will do (eg. `git checkout 2fd1790`).
+
+Finally you'll find the problematic commit, now's a good time to create a new branch so we can reference it more easily - `git checkout -b bugfix`. This'll bring you back out of "detached HEAD state" as a result so we know we can safely carry on.
+
+So what do you do when you finally fix the bug? You simply rebase/merge it back into your original branch and carry on!
+
+4. Cleaning up local branches
+
+Leaving your original local branches around can be handy if some issues arise but if all seems clear you may want to delete them. If you used the rebase method a normal delete won't work because git isn't confident that you've merged the branches (because there is no direct merge history). You still delete these branches simply with `git branch -D <branch>`
+
+*Erm, was I not supposed to push these to the remote?*
+
+If you pushed one of your personal branches to the remote and no longer need it you can remove it using `git push <remote> --delete <branch>` (eg. `git push origin --delete kevin-fixes-things`. Unfortunately, anyone who's done a fetch will have a remote reference to your branch (that you just deleted) until they prune it themselves, so you won't be able to hide this shame unfortunately. If they tell you to clean it up use `git remote prune <remote>`. You can run it as a dry-run first if you wish by appending `-n ` or `--dry-run`.

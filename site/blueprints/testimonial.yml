@@ -1,0 +1,23 @@
+title: Testimonial
+
+pages: false
+
+icon: user
+
+preview: parent
+
+fields:
+  title:
+    label: Name
+    type: title
+    required: true
+
+  position:
+    label: Position
+    type: text
+    required: true
+
+  quote:
+    label: Quote
+    type: textarea
+    required: true

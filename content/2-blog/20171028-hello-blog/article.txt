@@ -1,0 +1,21 @@
+Title: Hello Blog!
+
+----
+
+Coverimage: 
+
+----
+
+Date: 2017-10-28
+
+----
+
+Text: 
+
+On this fine Saturday a mediocre blog was born.
+
+This has actually been rewritten (sort of) for the Kirby CMS and we originally going into a Laravel setup but I've found Kirby a lot more fluent to work with so I've ported them over.
+
+Although I usually think of myself as being language agnostic I must confess that PHP doesn't come as easy to me. I think it's the differing syntax and various structures that are different to what I've grown used to when making web-based things.
+
+I'd rather work around it if possible, much like what I've done here!

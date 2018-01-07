@@ -1,0 +1,15 @@
+Title: Rock Paper Arduino - Howest IoT Project
+
+----
+
+Year: 2017
+
+----
+
+Text: 
+
+A combined project for the "Internet of Things" and "Cloud Development" courses. 
+
+On one end there is the game server, hosted on Heroku, which accepts WebSocket connections and has a few REST endpoints as well.
+
+The Arduino then connects to the server using the ESP8266 WiFi module. The user can then play the game with the buttons provided as well as get feedback through the LEDs and buzzer. The WebSockets allow the server to push game updates to the device so you can get a "realtime" response.

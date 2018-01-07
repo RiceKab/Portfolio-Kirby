@@ -1,0 +1,35 @@
+Title: Devoxx Belgium
+
+----
+
+Coverimage: 
+
+----
+
+Date: 2017-11-30
+
+----
+
+Text: 
+
+Although I've caught a few talks online before, I've never actually gone to a conference before. So when I was given the opportunity to attend with the school covering most of the cost I didn't hesitate to sign up. We attended Monday and Tuesday, colloquially the "Deep Dive" sessions, and it was veritably amazing.
+
+**Monday**
+I started off with a talk about Kotlin, something I had heard about but never actually looked into. Whilst it was certainly interesting it didn't seem like something I'd be getting into myself any time soon.
+
+Next there was a talk about Neural Networks which I think gave a lot better of an idea of how to think of them. It really deserves a post of its own (Soon™).
+
+One of my highlights for the day was one of the last talks of the day concerning terminals. It was a bit more lighthearted yet very interesting and I ended up experimenting with it throughout the week. ((link: https://www.youtube.com/watch?v=j5zA5Xi_ph8 text: Youtube link))
+
+(image: devoxx_term.png)
+
+**Tuesday**
+This day had a lot more interesting things going on for me, both in terms of talks and booth setups downstairs. I got a taste of the VR experience, amongst other things.
+
+The first talk of the day was on asynchronous programming in Java by Venkat Subramaniam. And I must say it was one of the best talks of the whole event. It's a subject I've struggled with in the past whenever I tried to implement multi-threading in Java applications (I usually just drop it or have a very inefficient system). Yet he manages to address all the problems I've had and how to solve them in a clear and concise way.
+
+Honestly, I have no idea how he manages to do these live examples without bogging down the talk at all. You should really see it for yourself. ((link: https://www.youtube.com/watch?v=IwJ-SCfXoAU text: Youtube link))
+
+(image: devoxx_asyncjava.png)
+
+Another notable mention is that talk on Quantim Computing that does a good job of explaining what quantum computing actually is. And maybe more importantly, what it's not (a "normal" computing replacement).
